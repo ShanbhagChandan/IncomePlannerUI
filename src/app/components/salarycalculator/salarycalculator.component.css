@@ -1,0 +1,56 @@
+.form-field-example{
+    width:100%;
+}
+
+.the-legend {
+    float: none;
+    border-style: none;
+    border-width: 0;
+    margin-bottom: 0;
+    font-size:20px;
+    width: auto;
+    padding: 5px 10px;
+    color:white;
+    background-color:#45c9cd;
+    border-radius: 4px;
+}
+
+.the-fieldset {
+    border: 2px solid #45c9cd;
+    padding: 20px 20px 5px 20px;
+    margin-bottom: 30px !important;
+    border-radius: 5px;
+}
+
+.btn-custom-row{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.top-row{
+    margin-top:30px;
+}
+
+.middle-row{
+    margin-bottom: 30px;
+}
+
+.custom-panel-header{
+    background-color: #ff4081;
+}
+
+.custom-panel-header:hover,.custom-panel-header:focus{
+    background-color: #f23e7a !important;
+}
+
+.custom-panel-title{
+    color:white;
+}
+
+.custom-panel-description{
+    color:white;
+}
+
+::ng-deep .custom-panel-header > .mat-expansion-indicator:after {
+    color: white;
+}

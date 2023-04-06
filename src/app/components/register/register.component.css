@@ -1,0 +1,46 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .authenticate-div{
+    height:100%;
+    background-image: url('/assets/images/business-g2c4ea77bf_1920.jpg');background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .authenticate-header{
+    justify-content: center;
+    background-color:#1b4f7d;
+    color:#fff;padding:10px;
+  }
+
+  .authenticate-content{
+    justify-content: center;
+    padding-top:30px;
+  }
+
+  .authenticate-actions{
+    justify-content: center;
+    padding-bottom:20px;
+  }
+
+  .authenticate-buttons{
+    background-color:#1b4f7d !important;
+    color:#fff !important;
+  }

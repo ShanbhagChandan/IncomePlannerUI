@@ -1,0 +1,209 @@
+<div class="container-fluid">
+    <div class="row top-row">
+        <div class="col-3">
+            <mat-form-field class="form-field-example" appearance="outline">
+                <mat-label>Financial Year</mat-label>
+                <mat-select value="2023-2024">
+                    <mat-option value="2022-2023">2022-2023</mat-option>
+                    <mat-option value="2023-2024">2023-2024</mat-option>
+                </mat-select>
+                <mat-icon matIconPrefix>currency_rupee</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-3">
+            <mat-form-field class="form-field-example" appearance="outline">
+                <mat-label>Tax Regime Type</mat-label>
+                <mat-select value="New">
+                    <mat-option value="Old">Old Regime</mat-option>
+                    <mat-option value="New">New Regime</mat-option>
+                </mat-select>
+                <mat-icon matIconPrefix>currency_rupee</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row middle-row">
+        <mat-accordion>
+            <mat-expansion-panel (opened)="salaryPanelOpenState = true" (closed)="salaryPanelOpenState = false">
+                <mat-expansion-panel-header class="custom-panel-header">
+                    <mat-panel-title class="custom-panel-title">
+                        Salary Structure
+                    </mat-panel-title>
+                    <mat-panel-description class="custom-panel-description">
+                        Salary details of the user for the selected financial year
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="row top-row">
+                    <form class="example-form" name="salaryform" [formGroup]="salaryDetails"
+                        #formSalaryDirective="ngForm" (ngSubmit)="OnSalarySubmit(formSalaryDirective)">
+                        <fieldset class="the-fieldset">
+                            <legend class="the-legend">Base Components</legend>
+                            <div class="row">
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Basic Pay</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Housing Rent Allowance</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Leave Travel Allowance</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Other Allowance</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="the-fieldset">
+                            <legend class="the-legend">Other Components</legend>
+                            <div class="row">
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Gratuity</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Employer PF</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Bonus Pay</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Varibale Pay</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="row btn-custom-row">
+                            <div class="col">
+                                <button mat-raised-button color="primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+
+    <div class="row middle-row">
+        <mat-accordion>
+            <mat-expansion-panel (opened)="investmentPanelOpenState = true" (closed)="investmentPanelOpenState = false">
+                <mat-expansion-panel-header class="custom-panel-header">
+                    <mat-panel-title class="custom-panel-title">
+                        Investment Details
+                    </mat-panel-title>
+                    <mat-panel-description class="custom-panel-description">
+                        Investment details of the user required for old tax regime
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="row top-row">
+                    <form class="example-form" name="investmentform" [formGroup]="investmentDetails"
+                        #formInvestmentDirective="ngForm" (ngSubmit)="OnInvestmentSubmit(formInvestmentDirective)">
+
+                        <fieldset class="the-fieldset">
+                            <legend class="the-legend">Base Components</legend>
+                            <div class="row">
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Basic Pay</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Housing Rent Allowance</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Leave Travel Allowance</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Other Allowance</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="the-fieldset">
+                            <legend class="the-legend">Other Components</legend>
+                            <div class="row">
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Gratuity</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Employer PF</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Bonus Pay</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <mat-form-field class="form-field-example" appearance="outline">
+                                        <mat-label>Varibale Pay</mat-label>
+                                        <input matInput>
+                                        <mat-icon matIconPrefix>currency_rupee</mat-icon>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="row btn-custom-row">
+                            <div class="col">
+                                <button mat-raised-button color="primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-toolbar color="primary">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+            (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>Income Planner</span>
+        <span class="example-spacer"></span>
+        <button class="user-button" mat-button [matMenuTriggerFor]="beforeMenu">
+            <mat-icon>account_circle</mat-icon> Chandan Shanbhag
+        </button>
+        <mat-menu #beforeMenu="matMenu" style="width:100%">
+            <button mat-menu-item>
+                <mat-icon>face</mat-icon>
+                <span>Account Details</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>settings_power</mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar>
+
+    <mat-drawer #drawer class="example-sidenav" mode="over">
+        <mat-toolbar color="accent">
+            <span>Navigation Bar</span>
+        </mat-toolbar>
+        <mat-divider></mat-divider>
+        <mat-toolbar color="primary">
+            <mat-toolbar-row class="customnav-items" [routerLink]="['Home']" (click)="drawer.close()">
+                <mat-icon class="nav-icon">dashboard</mat-icon>
+                <span>Dashboard</span>
+            </mat-toolbar-row>
+
+            <mat-toolbar-row class="customnav-items" [routerLink]="['SalaryCalculator']" (click)="drawer.close()">
+                <mat-icon class="nav-icon">attach_money</mat-icon>
+                <span>Salary Calculator</span>
+            </mat-toolbar-row>
+
+            <mat-toolbar-row class="customnav-items">
+                <mat-icon class="nav-icon">account_balance</mat-icon>
+                <span>Fixed Deposits</span>
+            </mat-toolbar-row>
+
+            <mat-toolbar-row class="customnav-items">
+                <mat-icon class="nav-icon">account_balance_wallet</mat-icon>
+                <span>Recurring Deposits</span>
+            </mat-toolbar-row>
+
+            <mat-toolbar-row class="customnav-items">
+                <mat-icon class="nav-icon">monetization_on</mat-icon>
+                <span>Other Incomes</span>
+            </mat-toolbar-row>
+
+            <mat-toolbar-row class="customnav-items">
+                <mat-icon class="nav-icon">question_answer</mat-icon>
+                <span>About Us</span>
+            </mat-toolbar-row>
+
+            <mat-toolbar-row class="customnav-items">
+                <mat-icon class="nav-icon">support_agent</mat-icon>
+                <span>Support</span>
+            </mat-toolbar-row>
+        </mat-toolbar>
+    </mat-drawer>
+
+    <div class="container-fluid">
+        <router-outlet></router-outlet>
+    </div>
+</mat-drawer-container>

@@ -1,0 +1,27 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.example-container {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+.example-sidenav{
+    width:250px;
+    background-color:#3f51b5;
+}
+
+.customnav-items:hover{
+    cursor: pointer;
+    background: #2b3c9c radial-gradient(circle, transparent 1%, #2b3c9c 1%) center/15000%;
+}
+
+.nav-icon{
+    margin-right:10px;
+}
+
+.user-button{
+    height:100%
+}
