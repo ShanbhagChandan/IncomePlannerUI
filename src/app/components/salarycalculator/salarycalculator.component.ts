@@ -8,9 +8,10 @@ import { FormBuilder, FormGroup, FormGroupDirective } from '@angular/forms';
 })
 export class SalarycalculatorComponent implements OnInit {
   salaryDetails: FormGroup;
-  investmentDetails:FormGroup
+  investmentDetails: FormGroup
   salaryPanelOpenState = false;
   investmentPanelOpenState = false;
+  displayDiv = false;
 
   constructor(private fb: FormBuilder) { }
 
@@ -23,11 +24,20 @@ export class SalarycalculatorComponent implements OnInit {
     })
   }
 
-  OnSalarySubmit(formSalaryDirective: FormGroupDirective){
+  OnRigmeChange(value:string) {
+    if(value=="New"){
+      this.displayDiv=false;
+    }
+    else if(value=="Old"){
+      this.displayDiv=true;
+    }
+  }
+
+  OnSalarySubmit(formSalaryDirective: FormGroupDirective) {
 
   }
 
-  OnInvestmentSubmit(formInvestmentDirective: FormGroupDirective){
-    
+  OnInvestmentSubmit(formInvestmentDirective: FormGroupDirective) {
+
   }
 }
