@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion'
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,6 +31,17 @@ import { AuthguardGuard } from './guard/authguard.guard';
 import { TokeninterceptorService } from './services/authenticate/tokeninterceptor.service';
 import { HomeComponent } from './components/home/home.component';
 import { SalarycalculatorComponent } from './components/salarycalculator/salarycalculator.component';
+import { ExpenseComponent } from './components/expense/expense.component';
+import { ExpensedialogComponent } from './components/expense/expensedialog.component';
+import { ExpensetablesComponent } from './components/expense/expensetables.component';
+import { ExpensetabledialogComponent } from './components/expense/expensetabledialog.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { ToastrModule } from 'ngx-toastr';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { DeletedialogComponent } from './components/common/deletedialog/deletedialog.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { ExpenseChartsComponent } from './components/home/expense-charts/expense-charts.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +50,13 @@ import { SalarycalculatorComponent } from './components/salarycalculator/salaryc
     RegisterComponent,
     DashboardComponent,
     HomeComponent,
-    SalarycalculatorComponent
+    SalarycalculatorComponent,
+    ExpenseComponent,
+    ExpensedialogComponent,
+    ExpensetablesComponent,
+    ExpensetabledialogComponent,
+    DeletedialogComponent,
+    ExpenseChartsComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +71,7 @@ import { SalarycalculatorComponent } from './components/salarycalculator/salaryc
         children: [
           {path:'Home',component:HomeComponent},
           {path:'SalaryCalculator',component:SalarycalculatorComponent},
+          {path:'Expenses',component:ExpensetablesComponent},
           { path: '', redirectTo: 'Home', pathMatch: 'full' },
           { path: '**', redirectTo: 'Home', pathMatch: 'full' }
         ],
@@ -76,13 +96,21 @@ import { SalarycalculatorComponent } from './components/salarycalculator/salaryc
     MatChipsModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule,
+    MatSortModule,
+    MatDialogModule,
+    HighchartsChartModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    ToastrModule.forRoot(), 
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: TokeninterceptorService,
     multi: true
   }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // entryComponents: [ExpensedialogComponent]
 })
 export class AppModule { }

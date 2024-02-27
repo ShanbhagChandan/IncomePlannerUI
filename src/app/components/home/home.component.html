@@ -1,1 +1,8 @@
-<p>home works!</p>
+<div class="loader" *ngIf="!dataLoad">
+        <mat-progress-spinner class="example-margin" color='accent' mode="indeterminate"></mat-progress-spinner>
+</div>
+<div *ngIf="!isEmptyData">
+        <div *ngFor="let expenseChart of expenseCharts" class="mat-elevation-z8 div-margin">
+                <app-expense-charts [expensesChart]="expenseChart"></app-expense-charts>
+        </div>
+</div>

@@ -37,14 +37,14 @@
                 <span>Salary Calculator</span>
             </mat-toolbar-row>
 
-            <mat-toolbar-row class="customnav-items">
-                <mat-icon class="nav-icon">account_balance</mat-icon>
-                <span>Fixed Deposits</span>
+            <mat-toolbar-row class="customnav-items" [routerLink]="['Expenses']" (click)="drawer.close()">
+                <mat-icon class="nav-icon">attach_money</mat-icon>
+                <span>Expenses</span>
             </mat-toolbar-row>
 
             <mat-toolbar-row class="customnav-items">
-                <mat-icon class="nav-icon">account_balance_wallet</mat-icon>
-                <span>Recurring Deposits</span>
+                <mat-icon class="nav-icon">account_balance</mat-icon>
+                <span>Banking</span>
             </mat-toolbar-row>
 
             <mat-toolbar-row class="customnav-items">

@@ -1,0 +1,36 @@
+<h2 mat-dialog-title class="text-center modal-title mat-elevation-z6" color="primary">Item Cost Edit</h2>
+
+<mat-dialog-content [formGroup]="form">
+    <div class="example-container">
+        <mat-form-field hidden>
+            <mat-label>Id</mat-label>
+            <input matInput placeholder="Id" formControlName="Id" disable>
+            <mat-error *ngIf="this.form.get('Id').hasError('required')">Id value is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Item Name</mat-label>
+            <input matInput placeholder="Item Name" formControlName="ItemName" autocomplete="off">
+            <mat-error *ngIf="this.form.get('ItemName').hasError('required')">Item value is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Base Cost</mat-label>
+            <input matInput placeholder="Base Cost" formControlName="BaseCost" (input)="sum()" (keypress)="($event.charCode >= 48 && $event.charCode < 58)" autocomplete="off" type="number">
+            <mat-error *ngIf="this.form.get('BaseCost').hasError('required')">Base cost value is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Additional Cost</mat-label>
+            <input matInput placeholder="Additional Cost" formControlName="AdditionalCost" (input)="sum()" (keypress)="($event.charCode >= 48 && $event.charCode < 58)" autocomplete="off" type="number">
+            <mat-error *ngIf="this.form.get('AdditionalCost').hasError('required')">Additional cost value is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Total Cost</mat-label>
+            <input matInput placeholder="Total Cost" formControlName="TotalCost">
+            <mat-error *ngIf="this.form.get('TotalCost').hasError('required')">Total Cost value is mandatory</mat-error>
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center" class="mat-elevation-z8">
+    <button mat-raised-button (click)="close()">Close</button>
+    <button mat-raised-button color="primary" (click)="save()" [disabled]="!form.valid">Save</button>
+</mat-dialog-actions>

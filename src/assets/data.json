@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "item": "Hydrogen",
+        "basecost": 1.0079,
+        "additionalcost": 1.0079,
+        "totalcost": 1.0079
+    },
+    {
+        "id": 2,
+        "item": "Helium",
+        "basecost": 4.0026,
+        "additionalcost": 1.0079,
+        "totalcost": 1.0079
+    },
+    {
+        "id": 3,
+        "item": "Lithium",
+        "basecost": 6.941,
+        "additionalcost": 1.0079,
+        "totalcost": 1.0079
+    },
+    {
+        "id": 4,
+        "item": "Beryllium",
+        "basecost": 9.0122,
+        "additionalcost": 1.0079,
+        "totalcost": 1.0079
+    },
+    {
+        "id": 5,
+        "item": "Boron",
+        "basecost": 10.811,
+        "additionalcost": 1.0079,
+        "totalcost": 1.0079
+    },
+    {
+        "id": 6,
+        "item": "Carbon",
+        "basecost": 12.0107,
+        "additionalcost": 1.0079,
+        "totalcost": 1.0079
+    },
+    {
+        "id": 7,
+        "item": "Nitrogen",
+        "basecost": 14.0067,
+        "additionalcost": 1.0079,
+        "totalcost": 1.0079
+    },
+    {
+        "id": 8,
+        "item": "Oxygen",
+        "basecost": 15.9994,
+        "additionalcost": 1.0079,
+        "totalcost": 1.0079
+    },
+    {
+        "id": 9,
+        "item": "Fluorine",
+        "basecost": 18.9984,
+        "additionalcost": 1.0079,
+        "totalcost": 1.0079
+    },
+    {
+        "id": 10,
+        "item": "Neon",
+        "basecost": 20.1797,
+        "additionalcost": 1.0079,
+        "totalcost": 1.0079
+    }
+]
