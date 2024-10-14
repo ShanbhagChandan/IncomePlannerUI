@@ -64,8 +64,15 @@ export class ExpensetablesComponent implements OnInit, AfterViewInit {
       }
     });
 
-    this.commonService.GetFinacialYears().subscribe((response: FinancialYears[]) => {
-      this.financialYears = response;
+    this.commonService.GetFinacialYears().subscribe({
+      next: (response: FinancialYears[])=>{
+        this.financialYears = response;
+      },
+      error:(err)=>{
+        this.toastr.error(err.statusText, err.status, {
+          timeOut: 8000,
+        })
+      }
     })
   }
 

@@ -1,0 +1,112 @@
+<h2 mat-dialog-title class="text-center modal-title mat-elevation-z6" color="primary">Table Add/Edit</h2>
+
+<mat-dialog-content [formGroup]="form">
+    <div class="example-container">
+        <mat-form-field hidden>
+            <mat-label>Id</mat-label>
+            <input matInput placeholder="AccountId" formControlName="AccountId" disable>
+            <mat-error *ngIf="this.form.get('AccountId').hasError('required')">Account Id value is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Account Name</mat-label>
+            <input matInput placeholder="AccountName" formControlName="AccountName" autocomplete="off">
+            <mat-error *ngIf="this.form.get('AccountName').hasError('required')">Account name is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Banks</mat-label>
+            <mat-select placeholder="BankId" formControlName="BankId">
+                <mat-option [value]="0">Select Bank</mat-option>
+                <mat-option *ngFor="let item of banks" [value]="item.Id">{{item.BankName}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="this.form.get('BankId').hasError('required') || this.form.get('BankId').value == 0">Bank is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Account Type</mat-label>
+            <mat-select placeholder="AccountTypeId" formControlName="AccountTypeId" (selectionChange)='onAccountTypeChange($event.value)'>
+                <mat-option [value]="0">Select Account Type</mat-option>
+                <mat-option *ngFor="let item of accountTypes" [value]="item.Id">{{item.AccountTypeName}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="this.form.get('AccountTypeId').hasError('required') || this.form.get('AccountTypeId').value == 0">Account type is mandatory</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="example-container" formGroupName="BankSavingDetails" *ngIf="selectedTypeId==1">
+        <mat-form-field hidden>
+            <mat-label>Savings Id</mat-label>
+            <input matInput placeholder="Savings Id" formControlName="SavingsId" disable>
+            <mat-error *ngIf="this.form.get('BankSavingDetails').get('SavingsId').hasError('required')">Savings id is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Savings Amount</mat-label>
+            <input matInput placeholder="Savings Amount" formControlName="SavingsAmount" autocomplete="off" step=".01" type="number">
+            <mat-error *ngIf="this.form.get('BankSavingDetails').get('SavingsAmount').hasError('required')">Savings amount is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Savings Interest Rate</mat-label>
+            <input matInput placeholder="Savings Interest Rate" formControlName="SavingsInterestRate" autocomplete="off" step=".01" type="number">
+            <mat-error *ngIf="this.form.get('BankSavingDetails').get('SavingsInterestRate').hasError('required')">Savings interest rate is mandatory</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="example-container" formGroupName="BankFixedDepositDetails" *ngIf="selectedTypeId==2">
+        <mat-form-field hidden>
+            <mat-label>Fixed Deposit Id</mat-label>
+            <input matInput placeholder="Fixed Deposit Id" formControlName="FixedDepositId" disable>
+            <mat-error *ngIf="this.form.get('BankFixedDepositDetails').get('FixedDepositId').hasError('required')">Fixed deposit id is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Fixed Deposit Amount</mat-label>
+            <input matInput placeholder="Fixed Deposit Amount" formControlName="FixedDepositAmount" autocomplete="off" step=".01" type="number">
+            <mat-error *ngIf="this.form.get('BankFixedDepositDetails').get('FixedDepositAmount').hasError('required')">Fixed deposit amount is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Fixed Deposit Interest Rate</mat-label>
+            <input matInput placeholder="Fixed Deposit Interest Rate" formControlName="FixedDepositInterestRate" autocomplete="off" step=".01" type="number">
+            <mat-error *ngIf="this.form.get('BankFixedDepositDetails').get('FixedDepositInterestRate').hasError('required')">Fixed deposit interest rate is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Fixed Deposit Starting Date</mat-label>
+            <input matInput [matDatepicker]="fixeddepositpicker" placeholder="Fixed Deposit Starting Date" formControlName="FixedDepositStartingDate" autocomplete="off">
+            <mat-datepicker-toggle matSuffix [for]="fixeddepositpicker"></mat-datepicker-toggle>
+            <mat-datepicker #fixeddepositpicker></mat-datepicker>
+            <mat-error *ngIf="this.form.get('BankFixedDepositDetails').get('FixedDepositStartingDate').hasError('required')">Fixed deposit starting date is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Fixed Deposit Duration In Months</mat-label>
+            <input matInput placeholder="Fixed Deposit Duration In Months" formControlName="FixedDepositDurationInMonths" autocomplete="off" step=".01" type="number">
+            <mat-error *ngIf="this.form.get('BankFixedDepositDetails').get('FixedDepositDurationInMonths').hasError('required')">Fixed deposit duration in months is mandatory</mat-error>
+        </mat-form-field>
+    </div>   
+    <div class="example-container" formGroupName="BankRecurringDepositDetails" *ngIf="selectedTypeId==3">
+        <mat-form-field hidden>
+            <mat-label>Recurring Deposit Id</mat-label>
+            <input matInput placeholder="Recurring Deposit Id" formControlName="RecurringDepositId" disable>
+            <mat-error *ngIf="this.form.get('BankRecurringDepositDetails').get('RecurringDepositId').hasError('required')">Recurring deposit id is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Recurring Deposit Amount</mat-label>
+            <input matInput placeholder="Recurring Deposit Amount" formControlName="RecurringDepositAmount" autocomplete="off" step=".01" type="number">
+            <mat-error *ngIf="this.form.get('BankRecurringDepositDetails').get('RecurringDepositAmount').hasError('required')">Recurring deposit amount is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Recurring Deposit Interest Rate</mat-label>
+            <input matInput placeholder="Recurring Deposit Interest Rate" formControlName="RecurringDepositInterestRate" autocomplete="off" step=".01" type="number">
+            <mat-error *ngIf="this.form.get('BankRecurringDepositDetails').get('RecurringDepositInterestRate').hasError('required')">Recurring deposit interest rate is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Recurring Deposit Starting Date</mat-label>
+            <input matInput [matDatepicker]="recurringdepositpicker" placeholder="Recurring Deposit Starting Date" formControlName="RecurringDepositStartingDate" autocomplete="off">
+            <mat-datepicker-toggle matSuffix [for]="recurringdepositpicker"></mat-datepicker-toggle>
+            <mat-datepicker #recurringdepositpicker></mat-datepicker>
+            <mat-error *ngIf="this.form.get('BankRecurringDepositDetails').get('RecurringDepositStartingDate').hasError('required')">Recurring deposit starting date is mandatory</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Recurring Deposit Duration In Months</mat-label>
+            <input matInput placeholder="Recurring Deposit Duration In Months" formControlName="RecurringDepositDurationInMonths" autocomplete="off" step=".01" type="number">
+            <mat-error *ngIf="this.form.get('BankRecurringDepositDetails').get('RecurringDepositDurationInMonths').hasError('required')">Recurring deposit duration in months is mandatory</mat-error>
+        </mat-form-field>
+    </div>        
+</mat-dialog-content>
+
+<mat-dialog-actions align="center" class="mat-elevation-z8">
+    <button mat-raised-button (click)="close()">Close</button>
+    <button mat-raised-button color="primary" (click)="save()" [disabled]="!form.valid">Save</button>
+</mat-dialog-actions>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BankAccountDetails } from 'src/app/models/bankaccountdetails';
 import { ItemPriceData } from 'src/app/models/itempricedata';
 import { ItemTableData } from 'src/app/models/itemtabledata';
 
@@ -45,5 +46,17 @@ export class DashboardService {
 
   getExpensesCharts(){
     return this.http.get(this.rootUrl + 'ExpenseCharts/GetExpenseCharts');
+  }
+
+  getBankAccounts(){
+    return this.http.get(this.rootUrl + 'Banking/GetBankAccounts');
+  }
+
+  postBankAccounts(data: BankAccountDetails){
+    return this.http.post(this.rootUrl + 'Banking/PostBankAccounts',data);
+  }
+
+  deleteBankAccounts(id: number){
+    return this.http.post(this.rootUrl + 'Banking/DeleteBankAccounts?accountId=' + id,'');
   }
 }

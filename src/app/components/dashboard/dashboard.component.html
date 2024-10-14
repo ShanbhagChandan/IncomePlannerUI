@@ -38,11 +38,11 @@
             </mat-toolbar-row>
 
             <mat-toolbar-row class="customnav-items" [routerLink]="['Expenses']" (click)="drawer.close()">
-                <mat-icon class="nav-icon">attach_money</mat-icon>
+                <mat-icon class="nav-icon">payment</mat-icon>
                 <span>Expenses</span>
             </mat-toolbar-row>
 
-            <mat-toolbar-row class="customnav-items">
+            <mat-toolbar-row class="customnav-items" [routerLink]="['Banking']" (click)="drawer.close()">
                 <mat-icon class="nav-icon">account_balance</mat-icon>
                 <span>Banking</span>
             </mat-toolbar-row>

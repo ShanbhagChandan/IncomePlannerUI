@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { FinancialYears } from 'src/app/models/financialyears';
 import { ItemTableData } from 'src/app/models/itemtabledata';
 import { CommonService } from 'src/app/services/common/common.service';
@@ -19,7 +20,8 @@ export class ExpensetabledialogComponent {
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<ExpensetabledialogComponent>,
     @Inject(MAT_DIALOG_DATA) data,
-    private commonService: CommonService) {
+    private commonService: CommonService,
+    private toastr: ToastrService) {
     this.itemTableData = data;
   }
 
@@ -29,8 +31,15 @@ export class ExpensetabledialogComponent {
       TableName: [{ value: this.itemTableData.TableName, disabled: false }, Validators.required],
       FinancialYear: [{ value: this.itemTableData.FinancialYear, disabled: false }, Validators.min(1)],
     });
-    this.commonService.GetFinacialYears().subscribe((response:FinancialYears[])=>{
-      this.financialYears = response;
+    this.commonService.GetFinacialYears().subscribe({
+      next: (response: FinancialYears[])=>{
+        this.financialYears = response;
+      },
+      error:(err)=>{
+        this.toastr.error(err.statusText, err.status, {
+          timeOut: 8000,
+        })
+      }
     })
   }
 

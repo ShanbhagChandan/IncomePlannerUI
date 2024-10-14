@@ -29,7 +29,9 @@ export class ExpenseComponent {
   }
   @ViewChild(MatTable, { static: true }) table: MatTable<any>;
 
-  constructor(private dialog: MatDialog, private dashboardService: DashboardService, private toastr: ToastrService) {
+  constructor(private dialog: MatDialog, 
+    private dashboardService: DashboardService, 
+    private toastr: ToastrService) {
 
   }
 

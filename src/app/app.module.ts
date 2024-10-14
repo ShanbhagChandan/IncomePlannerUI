@@ -14,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatRippleModule } from '@angular/material/core';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatChipsModule} from '@angular/material/chips';
@@ -42,6 +42,10 @@ import { DeletedialogComponent } from './components/common/deletedialog/deletedi
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ExpenseChartsComponent } from './components/home/expense-charts/expense-charts.component';
+import { BankingComponent } from './components/banking/banking.component';
+import { BankingDialogComponent } from './components/banking/banking-dialog.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -57,6 +61,8 @@ import { ExpenseChartsComponent } from './components/home/expense-charts/expense
     ExpensetabledialogComponent,
     DeletedialogComponent,
     ExpenseChartsComponent,
+    BankingComponent,
+    BankingDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +78,7 @@ import { ExpenseChartsComponent } from './components/home/expense-charts/expense
           {path:'Home',component:HomeComponent},
           {path:'SalaryCalculator',component:SalarycalculatorComponent},
           {path:'Expenses',component:ExpensetablesComponent},
+          {path:'Banking',component:BankingComponent},
           { path: '', redirectTo: 'Home', pathMatch: 'full' },
           { path: '**', redirectTo: 'Home', pathMatch: 'full' }
         ],
@@ -103,6 +110,9 @@ import { ExpenseChartsComponent } from './components/home/expense-charts/expense
     HighchartsChartModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTabsModule,
     ToastrModule.forRoot(), 
   ],
   providers: [{
